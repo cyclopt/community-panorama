@@ -1,0 +1,162 @@
+{
+	"name": "community-panorama",
+	"version": "1.0.0",
+	"private": true,
+	"main": "index.js",
+	"description": "The “face” of the Cyclopt Panorama app",
+	"homepage": "https://panorama.cyclopt.com",
+	"bugs": {
+		"url": "https://github.com/cyclopt/community-panorama/issues"
+	},
+	"repository": "github:cyclopt/community-panorama",
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite",
+		"lint": "eslint . --ext .jsx,.js --cache",
+		"preview": "vite preview",
+		"test": "npm run lint",
+		"test:ci": "npm run lint && cypress run",
+		"cypress": "cypress open"
+	},
+	"imports": {
+		"#utils": "./src/utils/index.js",
+		"#api": "./src/api/index.js",
+		"#customHooks": "./src/costume-hooks/index.js"
+	},
+	"prettier": "@iamnapo/prettier-config",
+	"eslintConfig": {
+		"plugins": [
+			"cypress"
+		],
+		"extends": [
+			"plugin:cypress/recommended",
+			"iamnapo/react"
+		],
+		"rules": {
+			"unicorn/no-array-reduce": 0,
+			"import/no-unresolved": [
+				"error",
+				{
+					"ignore": [
+						"#utils",
+						"#api",
+						"#customHooks",
+						"@iamnapo/average",
+						"@iamnapo/construct-url",
+						"@iamnapo/sort",
+						"mem"
+					]
+				}
+			]
+		},
+		"overrides": [
+			{
+				"files": [
+					"src/screens/{AddProject,ProjectInfo,Projects,Tasks,Teams,User}.jsx",
+					"src/screens/Project/{MemberProfile,ProjectCollaborators,ProjectTaskKanban,ProjectTaskManagement}.jsx",
+					"src/screens/Quality/{QualityFiles,QualityCommits}.jsx",
+					"src/screens/TeamInfo/{TeamInfoMembers,TeamInfoOverview,TeamMemberProfile}.jsx",
+					"src/components/{UpdateProject,DataTable,BaseCodeViewer}.jsx"
+				],
+				"rules": {
+					"react/prop-types": "off"
+				}
+			}
+		],
+		"ignorePatterns": "dist"
+	},
+	"dependencies": {
+		"@caldwell619/react-kanban": "^0.0.11",
+		"@codemirror/lang-java": "^6.0.1",
+		"@codemirror/lang-javascript": "^6.2.2",
+		"@codemirror/lang-php": "^6.0.1",
+		"@codemirror/lang-python": "^6.1.5",
+		"@codemirror/language": "^6.10.1",
+		"@codemirror/legacy-modes": "^6.4.0",
+		"@codemirror/lint": "^6.5.0",
+		"@codemirror/state": "^6.2.1",
+		"@codemirror/view": "^6.14.0",
+		"@emotion/react": "^11.11.4",
+		"@emotion/styled": "^11.11.5",
+		"@iamnapo/average": "^1.2.2",
+		"@iamnapo/construct-url": "^3.0.2",
+		"@iamnapo/sort": "^2.2.0",
+		"@iconify/react": "^6.0.0",
+		"@mui/icons-material": "^5.15.15",
+		"@mui/lab": "^5.0.0-alpha.170",
+		"@mui/material": "^5.15.15",
+		"@mui/styles": "^6.4.11",
+		"@mui/x-data-grid": "^6.9.0",
+		"@mui/x-date-pickers": "^6.9.0",
+		"@mui/x-date-pickers-pro": "^8.6.0",
+		"@reactour/tour": "^3.6.1",
+		"@sentry/browser": "^7.77.0",
+		"@uiw/react-codemirror": "^4.21.7",
+		"@vitejs/plugin-react-swc": "^3.3.2",
+		"bulma": "^0.9.4",
+		"clsx": "^2.1.0",
+		"copy-text-to-clipboard": "^3.2.0",
+		"cycled": "^2.0.0",
+		"dayjs": "^1.11.8",
+		"debounce-fn": "^6.0.0",
+		"deep-equal": "^2.2.2",
+		"dequal": "^2.0.3",
+		"dotenv": "^16.4.5",
+		"framer-motion": "^12.17.0",
+		"git-url-parse": "^14.0.0",
+		"github-markdown-css": "^5.2.0",
+		"idb-keyval": "^6.2.1",
+		"immer": "^10.0.2",
+		"js-cookie": "^3.0.5",
+		"jwt-decode": "^4.0.0",
+		"ky": "^1.2.3",
+		"match-sorter": "^6.3.1",
+		"mui-image": "^1.0.7",
+		"plotly.js": "^2.24.2",
+		"pluralize": "^8.0.0",
+		"pretty-ms": "^9.0.0",
+		"prop-types": "^15.8.1",
+		"query-string": "^9.0.0",
+		"react": "^18.2.0",
+		"react-big-calendar": "1.8.1",
+		"react-dom": "^18.2.0",
+		"react-dropzone": "^14.2.3",
+		"react-error-boundary": "^4.0.10",
+		"react-hotkeys-hook": "^4.4.0",
+		"react-image-gallery": "^1.3.0",
+		"react-markdown": "^9.0.1",
+		"react-mde": "^11.5.0",
+		"react-measure": "^2.5.2",
+		"react-plotly.js": "^2.6.0",
+		"react-router-dom": "^6.14.0",
+		"react-syntax-highlighter": "^15.5.0",
+		"reactour": "^1.19.1",
+		"regression": "^2.0.1",
+		"remark-gfm": "^4.0.0",
+		"swr": "^2.2.5",
+		"use-debounce": "^10.0.0",
+		"use-immer": "^0.9.0",
+		"vite": "^5.2.9",
+		"xlsx": "^0.18.5",
+		"zustand": "^4.5.2"
+	},
+	"devDependencies": {
+		"@iamnapo/prettier-config": "^1.0.3",
+		"cypress": "^13.7.3",
+		"eslint": "^8.43.0",
+		"eslint-config-iamnapo": "^31.0.0",
+		"eslint-plugin-cypress": "^2.13.3",
+		"sass": "^1.63.6"
+	},
+	"engines": {
+		"node": ">=18",
+		"npm": ">=8"
+	},
+	"overrides": {
+		"react-mde": {
+			"react": "$react",
+			"react-dom": "$react-dom"
+		}
+	}
+}

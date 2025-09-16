@@ -1,0 +1,584 @@
+:root {
+	--cyclopt-primary-color: #00426e;
+	--cyclopt-secondary-color: #00cbc4;
+
+	--cyclopt-epic-color: #ff484e;
+
+	--card-background-dark: #e7ecf1;
+	--card-background-light: #f5f8fa;
+
+	--kanban-backlog-Default: #ccd9e2;
+	--kanban-sprint-planning-Default: #669abe;
+	--kanban-in-progress-Default: #66e0dc;
+	--kanban-delivered-Default: #e383ab;
+	--kanban-accepted-Default: #90c56d;
+
+	--kanban-backlog-Monochrome: #ebf0f3;
+	--kanban-sprint-planning-Monochrome: #d2dde5;
+	--kanban-in-progress-Monochrome: #99b3c5;
+	--kanban-delivered-Monochrome: #668ea8;
+	--kanban-accepted-Monochrome: #33688b;
+
+	--kanban-backlog-Vivid: #6bb764;
+	--kanban-sprint-planning-Vivid: #39c0c4;
+	--kanban-in-progress-Vivid: #feda1e;
+	--kanban-delivered-Vivid: #f7941d;
+	--kanban-accepted-Vivid: #f15c63;
+
+	--kanban-backlog-Earth: #ded9d3;
+	--kanban-sprint-planning-Earth: #7f959b;
+	--kanban-in-progress-Earth: #c99256;
+	--kanban-delivered-Earth: #a5665c;
+	--kanban-accepted-Earth: #eb957c;
+
+	--kanban-backlog-PostIt: #f0f58f;
+	--kanban-sprint-planning-PostIt: #a9edf0;
+	--kanban-in-progress-PostIt: #74ed4a;
+	--kanban-delivered-PostIt: #ffa930;
+	--kanban-accepted-PostIt: #ff32b1;
+
+	--kanban-backlog-Christmas: #062741;
+	--kanban-sprint-planning-Christmas: #BF9E60;
+	--kanban-in-progress-Christmas: #02733E;
+	--kanban-delivered-Christmas: #BF213E;
+	--kanban-accepted-Christmas: #731224;
+}
+
+$card-color: black;
+
+$dot-color: #00426e;
+
+@import "bulma/sass/utilities/_all";
+
+@import "bulma/sass/base/_all";
+
+@import "bulma/sass/elements/container";
+@import "bulma/sass/elements/content";
+
+@import "bulma/sass/form/shared";
+@import "bulma/sass/form/input-textarea";
+@import "bulma/sass/form/tools";
+
+@import "bulma/sass/components/card";
+
+@import "bulma/sass/grid/columns";
+
+@import "github-markdown-css/github-markdown-light.css";
+
+@import "react-mde/lib/styles/scss/react-mde-all.scss";
+
+@import "@caldwell619/react-kanban/dist/styles.css";
+
+// @import "react-big-calendar/lib/sass/styles";
+
+html {
+	position: relative;
+	min-height: 100% !important;
+	width: 100vw;
+	overflow-y: auto;
+}
+
+body {
+	margin: 0;
+	padding-right: 0 !important;
+	min-height: 100% !important;
+	overflow-x: hidden !important;
+	color: black;
+	font-family: Commissioner, Helvetica, Arial, sans-serif !important;
+}
+
+// overwrite bulmas `container` class
+.container {
+	width: 100%;
+	margin: auto;
+	flex-grow: 1;
+	position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+	.container {
+		max-width: 100%;
+		padding: 0 1rem;
+	}
+}
+
+// calendar
+.rbc-month-view {
+	border-color: var(--cyclopt-primary-color) !important;
+	border-radius: 1rem;
+}
+
+.rbc-month-header {
+	background-color: var(--cyclopt-primary-color);
+	border-top-right-radius: 1rem;
+	border-top-left-radius: 1rem;
+	color: white;
+}
+
+.rbc-day-bg {
+	border-color: var(--cyclopt-primary-color) !important;
+}
+
+.rbc-month-row {
+	border-color: var(--cyclopt-primary-color) !important;
+}
+
+.rbc-header {
+	border-color: var(--cyclopt-primary-color) !important;
+}
+
+// kanban
+.kanban-grid-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+	.kanban-grid-container {
+		justify-content: flex-start;
+	}
+}
+
+rect.selector-rect {
+	fill: rgba(0, 203, 196, 0.3) !important;
+}
+
+rect.selector-rect.selected {
+	fill: rgba(0, 203, 196, 1) !important;
+}
+
+text.selector-text {
+	fill: black !important;
+}
+
+.header-container {
+	margin: 0 auto !important;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+@media screen and (max-width: 1024px) {
+	.header-container {
+		max-width: 100%;
+		padding: 0 1rem;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.header-container {
+		max-width: 960px;
+	}
+}
+
+@media screen and (min-width: 1216px) {
+	.header-container {
+		max-width: 1152px;
+	}
+}
+
+@media screen and (min-width: 1408px) {
+	.header-container {
+		max-width: 1344px;
+	}
+}
+
+.markdown-body,
+.mde-preview {
+	font-size: 1rem;
+	word-break: break-all;
+	word-break: break-word;
+
+	img {
+		max-width: 100%;
+	}
+
+	ul {
+		list-style: unset;
+	}
+
+	background-color: unset;
+}
+
+.small-icon span svg {
+	padding-left: 0.1em;
+	padding-right: 0.1em;
+}
+
+.disabled-link {
+	pointer-events: none;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0px !important;
+}
+
+.suggestions-dropdown {
+	z-index: 1;
+	max-height: 100%;
+	overflow: auto;
+}
+
+.react-kanban-board {
+	margin-top: 1rem;
+	background-color: white;
+	color: black;
+	padding: 0px !important;
+	min-height: calc(100vh - var(--kanban-offset) - 8.5rem);
+
+	>div {
+		>div:first-child {
+			margin-left: 0;
+		}
+	}
+}
+@media screen and (min-width: 2560px) {
+	.react-kanban-board {
+		justify-content: center;
+	}
+
+	.kanban-container {
+		display: grid;
+	}
+}
+
+/* Only for safari */
+.safari {
+	.react-kanban-column > div:nth-of-type(2) {
+		max-height: 80vh !important;
+		overflow-x: hidden !important;
+		padding-right: 15px !important;
+	}
+}
+
+
+.react-kanban-column {
+	border-radius: 10px;
+	min-width: 380px;
+	color: black;
+	background-color: var(--kanban-sprint-planning-Default);
+
+	>div:nth-of-type(2) {
+		max-height: 80vh !important;
+		overflow-x: hidden !important;
+		padding-right: 2px;
+	}
+
+	&[data-rfd-draggable-id$="-Default"] {
+		background-color: var(--kanban-sprint-planning-Default);
+	}
+	&[data-rfd-draggable-id="column-draggable-Backlog-Default"] {
+		background-color: var(--kanban-backlog-Default);
+	}
+	&[data-rfd-draggable-id="column-draggable-To Do-Default"],
+	&[data-rfd-draggable-id="column-draggable-Sprint Planning-Default"] {
+		background-color: var(--kanban-sprint-planning-Default);
+	}
+	&[data-rfd-draggable-id="column-draggable-Open-Default"],
+	&[data-rfd-draggable-id="column-draggable-In Progress-Default"] {
+		background-color: var(--kanban-in-progress-Default);
+	}
+	&[data-rfd-draggable-id="column-draggable-Delivered-Default"] {
+		background-color: var(--kanban-delivered-Default);
+	}
+	&[data-rfd-draggable-id="column-draggable-Closed-Default"],
+	&[data-rfd-draggable-id="column-draggable-Done-Default"],
+	&[data-rfd-draggable-id="column-draggable-Accepted-Default"] {
+		background-color: var(--kanban-accepted-Default);
+	}
+	&[data-rfd-draggable-id="-Default"] {
+		background-color: var(--kanban-sprint-planning-Default);
+	}
+
+	&[data-rfd-draggable-id$="-Monochrome"] {
+		background-color: var(--kanban-sprint-planning-Monchrome);
+	}
+	&[data-rfd-draggable-id="column-draggable-Closed-Monochrome"],
+	&[data-rfd-draggable-id="column-draggable-Done-Monochrome"],
+	&[data-rfd-draggable-id="column-draggable-Accepted-Monochrome"] {
+		background-color: var(--kanban-accepted-Monochrome);
+	}
+	&[data-rfd-draggable-id="column-draggable-Backlog-Monochrome"] {
+		background-color: var(--kanban-backlog-Monochrome);
+	}
+	&[data-rfd-draggable-id="column-draggable-To Do-Monochrome"],
+	&[data-rfd-draggable-id="column-draggable-Sprint Planning-Monochrome"] {
+		background-color: var(--kanban-sprint-planning-Monochrome);
+	}
+	&[data-rfd-draggable-id="column-draggable-Open-Monochrome"],
+	&[data-rfd-draggable-id="column-draggable-In Progress-Monochrome"] {
+		background-color: var(--kanban-in-progress-Monochrome);
+	}
+	&[data-rfd-draggable-id="column-draggable-Delivered-Monochrome"] {
+		background-color: var(--kanban-delivered-Monochrome);
+	}
+
+	&[data-rfd-draggable-id$="-Vivid"] {
+		background-color: var(--kanban-sprint-planning-Vivid);
+	}
+	&[data-rfd-draggable-id="column-draggable-Closed-Vivid"],
+	&[data-rfd-draggable-id="column-draggable-Done-Vivid"],
+	&[data-rfd-draggable-id="column-draggable-Accepted-Vivid"] {
+		background-color: var(--kanban-accepted-Vivid);
+	}
+	&[data-rfd-draggable-id="column-draggable-Backlog-Vivid"] {
+		background-color: var(--kanban-backlog-Vivid);
+	}
+	&[data-rfd-draggable-id="column-draggable-To Do-Vivid"],
+	&[data-rfd-draggable-id="column-draggable-Sprint Planning-Vivid"] {
+		background-color: var(--kanban-sprint-planning-Vivid);
+	}
+	&[data-rfd-draggable-id="column-draggable-Open-Vivid"],
+	&[data-rfd-draggable-id="column-draggable-In Progress-Vivid"] {
+		background-color: var(--kanban-in-progress-Vivid);
+	}
+	&[data-rfd-draggable-id="column-draggable-Delivered-Vivid"] {
+		background-color: var(--kanban-delivered-Vivid);
+	}
+
+	&[data-rfd-draggable-id$="-Earth"] {
+		background-color: var(--kanban-sprint-planning-Earth);
+	}
+	&[data-rfd-draggable-id="column-draggable-Backlog-Earth"] {
+		background-color: var(--kanban-backlog-Earth);
+	}
+	&[data-rfd-draggable-id="column-draggable-To Do-Earth"],
+	&[data-rfd-draggable-id="column-draggable-Sprint Planning-Earth"] {
+		background-color: var(--kanban-sprint-planning-Earth);
+	}
+	&[data-rfd-draggable-id="column-draggable-Open-Earth"],
+	&[data-rfd-draggable-id="column-draggable-In Progress-Earth"] {
+		background-color: var(--kanban-in-progress-Earth);
+	}
+	&[data-rfd-draggable-id="column-draggable-Delivered-Earth"] {
+		background-color: var(--kanban-delivered-Earth);
+	}
+	&[data-rfd-draggable-id="column-draggable-Closed-Earth"],
+	&[data-rfd-draggable-id="column-draggable-Done-Earth"],
+	&[data-rfd-draggable-id="column-draggable-Accepted-Earth"] {
+		background-color: var(--kanban-accepted-Earth);
+	}
+
+	&[data-rfd-draggable-id$="-PostIt"] {
+		background-color: var(--kanban-sprint-planning-PostIt);
+	}
+	&[data-rfd-draggable-id="column-draggable-Backlog-PostIt"] {
+		background-color: var(--kanban-backlog-PostIt);
+	}
+	&[data-rfd-draggable-id="column-draggable-To Do-PostIt"],
+	&[data-rfd-draggable-id="column-draggable-Sprint Planning-PostIt"] {
+		background-color: var(--kanban-sprint-planning-PostIt);
+	}
+	&[data-rfd-draggable-id="column-draggable-Open-PostIt"],
+	&[data-rfd-draggable-id="column-draggable-In Progress-PostIt"] {
+		background-color: var(--kanban-in-progress-PostIt);
+	}
+	&[data-rfd-draggable-id="column-draggable-Delivered-PostIt"] {
+		background-color: var(--kanban-delivered-PostIt);
+	}
+	&[data-rfd-draggable-id="column-draggable-Closed-PostIt"],
+	&[data-rfd-draggable-id="column-draggable-Done-PostIt"],
+	&[data-rfd-draggable-id="column-draggable-Accepted-PostIt"] {
+		background-color: var(--kanban-accepted-PostIt);
+	}
+
+	&[data-rfd-draggable-id$="-Christmas"] {
+		color: white;
+		background-color: var(--kanban-sprint-planning-Christmas);
+		background-size: contain;
+		background-image: url("https://storage.googleapis.com/cyclopt-user-content/pr_5d94839b3429f7001ef2f243id_banZqqOTIgnMSLBISRlv8.png");
+	}
+	&[data-rfd-draggable-id="column-draggable-Backlog-Christmas"] {
+		color: white;
+		background-color: var(--kanban-backlog-Christmas);
+		background-size: contain;
+		background-image: url("https://storage.googleapis.com/cyclopt-user-content/pr_5d94839b3429f7001ef2f243id_v8ARJ85D1ZbizeuAUru7Y.png");
+	}
+	&[data-rfd-draggable-id="column-draggable-To Do-Christmas"],
+	&[data-rfd-draggable-id="column-draggable-Sprint Planning-Christmas"] {
+		color: white;
+		background-color: var(--kanban-sprint-planning-Christmas);
+		background-size: contain;
+		background-image: url("https://storage.googleapis.com/cyclopt-user-content/pr_5d94839b3429f7001ef2f243id_banZqqOTIgnMSLBISRlv8.png");
+	}
+	&[data-rfd-draggable-id="column-draggable-Open-Christmas"],
+	&[data-rfd-draggable-id="column-draggable-In Progress-Christmas"] {
+		color: white;
+		background-color: var(--kanban-in-progress-Christmas);
+		background-size: contain;
+		background-image: url("https://storage.googleapis.com/cyclopt-user-content/pr_5d94839b3429f7001ef2f243id_EDSJGGaI3K07y2B8Sncbw.png");
+	}
+	&[data-rfd-draggable-id="column-draggable-Delivered-Christmas"] {
+		color: white;
+		background-color: var(--kanban-delivered-Christmas);
+		background-size: contain;
+		background-image: url("https://storage.googleapis.com/cyclopt-user-content/pr_5d94839b3429f7001ef2f243id_kVy8OYQbjlEsLUvluDoFt.png");
+	}
+	&[data-rfd-draggable-id="column-draggable-Closed-Christmas"],
+	&[data-rfd-draggable-id="column-draggable-Done-Christmas"],
+	&[data-rfd-draggable-id="column-draggable-Accepted-Christmas"] {
+		color: white;
+		background-color: var(--kanban-accepted-Christmas);
+		background-size: contain;
+		background-image: url("https://storage.googleapis.com/cyclopt-user-content/pr_5d94839b3429f7001ef2f243id_N2jZ5dSL7u2Zt_e1nttuq.png");
+	}
+
+	&[data-rfd-draggable-id="column-draggable-Archived"] {
+		background-color: #9e9e9e;
+	}
+}
+
+.react-kanban-card-adder-button {
+	display: none !important;
+}
+
+::-webkit-scrollbar {
+	width: 14px;
+	height: 14px;
+}
+
+::-webkit-scrollbar-track {
+	background: #ffffff;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--card-background-dark);
+	border-radius: 10px;
+	border: 3px solid white;
+}
+
+#firstCommit::placeholder,
+#secondCommit::placeholder,
+.clone-instance-icon {
+	color: var(--cyclopt-primary-color) !important;
+	opacity: 1 !important;
+	font-weight: bold !important;
+}
+
+.cm-editor {
+	border-radius: 10px;
+
+	.cm-content *::selection {
+		background-color: #99ff7780 !important;
+	}
+}
+
+.cm-scroller {
+	border-radius: 10px;
+}
+
+.cm-activeLineGutter {
+	color: #6c6c6c !important;
+}
+
+.cm-mark {
+	background-color: var(--cyclopt-primary-color) !important;
+	color: white !important;
+}
+
+.marked-text {
+	background-color: #fcebd0;
+}
+
+.versions {
+	color: gray;
+	font-size: 13px;
+}
+
+.buttonField {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+@keyframes rotate {
+	to { transform: rotate(360deg) }
+}
+
+.add-collaborator {
+	transform: rotate(0deg); /* Equal to rotateZ(45deg) */
+	transition: transform 100ms ease-in-out;
+}
+
+.remove-collaborator {
+	transform: rotate(45deg); /* Equal to rotateZ(45deg) */
+	transition: transform 100ms ease-in-out;
+	// color: 
+}
+
+.logo-outer {
+	background-color: #00426e;
+	width: 52px;
+	height: 52px;
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 2px;
+}
+
+.logo-outline {
+	width: 35px;
+	height: 35px;
+	align-items: center;
+	border-radius: 100%;
+	border: 3px solid white;
+}
+
+.logo-outline-without-hover {
+	width: 35px;
+	height: 35px;
+	align-items: center;
+	border-radius: 100%;
+	border: 3px solid white;
+}
+
+.logo-outline-without-hover > div {
+	position: relative;
+	width: 8px;
+	height: 8px;
+	border-radius: 100%;
+	background-color: white;
+	top: 0.3rem;
+	margin-left: auto;
+	margin-right: auto;
+	transition: height 300ms, width 300ms, border-radius 300ms;
+}
+
+.logo-outline > div {
+	position: relative;
+	width: 8px;
+	height: 8px;
+	border-radius: 100%;
+	background-color: white;
+	top: 0.3rem;
+	margin-left: auto;
+	margin-right: auto;
+	transition: height 300ms, width 300ms, border-radius 300ms;
+}
+
+.logo-outline:hover > .logo-eye {
+	height: 2px;
+	border-radius: 0;
+	width: 8px;
+	top: 0.4rem;
+}
+
+.centered-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+// IMAGE GALLERY
+
+.image-gallery-slide img {
+    width: 100%;
+    height: 300px;
+}
+
+// Box Plot ToolBar
+.modebar-btn.plotlyjsicon.modebar-btn--logo {
+    display: none;
+}
